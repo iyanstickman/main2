@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark-Themed Registration Form</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="form-container">
+        <form action="login.html" method="post" id="registrationForm" onsubmit="return storeRegistrationDetails()">
+            <h2>Registration Form</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Desired Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" minlength="8" required>
+                <small>Password must be at least 8 characters long.</small>
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Birth Date</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="text" id="contact" name="contact" required>
+            </div>
+            <button type="submit">Register</button>
+            <p class="switch-form">Already have an account? <a href="log.html">Login here</a></p>
+        </form>
+    </div>
+
+    <script>
+        function storeRegistrationDetails() {
+            var name = document.getElementById("name").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var birthdate = document.getElementById("birthdate").value;
+            var age = document.getElementById("age").value;
+            var address = document.getElementById("address").value;
+            var contact = document.getElementById("contact").value;
+
+    
+            var registrationDetails = {
+                name: name,
+                username: username,
+                password: password,
+                birthdate: birthdate,
+                age: age,
+                address: address,
+                contact: contact
+            };
+
+            
+            localStorage.setItem("registrationDetails", JSON.stringify(registrationDetails));
+
+            
+            window.location.href = "log.html";
+
+            return false; 
+        }
+    </script>
+</body>
+</html>
